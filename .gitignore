@@ -1,2 +1,6 @@
 .ipynb_checkpoints
 .pytest_cache
+venv
+__pycache__
+tk.tar.gz
+tk-0.1.0
