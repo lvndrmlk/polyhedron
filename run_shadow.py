@@ -22,4 +22,3 @@ try:
 except (EOFError, KeyboardInterrupt):
     print("\nStop")
     tk.close()
-

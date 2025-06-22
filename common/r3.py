@@ -1,5 +1,6 @@
 from math import sin, cos
 
+
 class R3:
     """ Вектор (точка) в R3 """
 
@@ -40,15 +41,15 @@ class R3:
             self.y * other.z - self.z * other.y,
             self.z * other.x - self.x * other.z,
             self.x * other.y - self.y * other.x)
-    
+
     def is_good(self):
         SIZE = 900
         SCALE = 1.5
         # Проверяет, находится ли проекция точки строго ниже прямой y=2
-        screen_y = SIZE/2 - SCALE * self.y
-        return screen_y > (SIZE/2 - SCALE * 2)
-    
-    
+        screen_y = SIZE / 2 - SCALE * self.y
+        return screen_y > (SIZE / 2 - SCALE * 2)
+
+
 if __name__ == "__main__":  # pragma: no cover
     x = R3(1.0, 1.0, 1.0)
     print("x", type(x), x.__dict__)

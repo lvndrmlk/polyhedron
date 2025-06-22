@@ -23,7 +23,7 @@ class TkDrawer:
     def __init__(self):
         self.root = Tk()
         self.root.title("Изображение проекции полиэдра")
-        self.root.geometry(f"{SIZE+5}x{SIZE+5}")
+        self.root.geometry(f"{SIZE + 5}x{SIZE + 5}")
         self.root.resizable(True, True)
         self.root.bind('<Control-c>', quit)
         self.canvas = Canvas(self.root, width=SIZE, height=SIZE)

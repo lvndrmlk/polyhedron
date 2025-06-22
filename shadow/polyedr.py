@@ -115,20 +115,20 @@ class Facet:
     def center(self):
         return sum(self.vertexes, R3(0.0, 0.0, 0.0)) * \
             (1.0 / len(self.vertexes))
-    
+
     def projection_area(self):
         if len(self.vertexes) < 3:
             return 0.0
-            
+
         points = [(v.x, v.y) for v in self.vertexes]
-        
+
         area = 0.0
         n = len(points)
         for i in range(n):
             x_i, y_i = points[i]
-            x_j, y_j = points[(i+1)%n]
+            x_j, y_j = points[(i + 1) % n]
             area += (x_i * y_j) - (x_j * y_i)
-            
+
         return abs(area) / 2.0
 
 
@@ -178,7 +178,8 @@ class Polyedr:
     # Метод изображения полиэдра
     def draw(self, tk):  # pragma: no cover
         tk.clean()
-        tk.draw_line(R3(-1000.0, 2.0, 0.0) * self.scale, R3(1000.0, 2.0, 0.0) * self.scale)
+        tk.draw_line(R3(-1000.0, 2.0, 0.0) * self.scale,
+                     R3(1000.0, 2.0, 0.0) * self.scale)
         for e in self.edges:
             for f in self.facets:
                 e.shadow(f)
@@ -187,14 +188,14 @@ class Polyedr:
 
     def calculate_area(self):
         total_area = 0.0
-        
+
         for facet in self.facets:
             good_count = 0
             for vertex in facet.vertexes:
                 if vertex.is_good():
                     good_count += 1
-            
+
             if good_count == 1:
                 total_area += facet.projection_area()
-                
-        return total_area/self.scale**2
+
+        return total_area / self.scale**2

@@ -60,14 +60,14 @@ class TestPolyedr(unittest.TestCase):
         self.assertAlmostEqual(facet.projection_area(), 1.0)
 
     def test_projection_area_degenerate(self):
-            """Проверка площади вырожденной грани (меньше 3 вершин)"""
-            degenerate_vertexes = [
-                R3(0.0, 0.0, 0.0),
-                R3(1.0, 0.0, 0.0)
-            ]
-            facet = Facet(degenerate_vertexes)
-            self.assertEqual(facet.projection_area(), 0.0)
-    
+        """Проверка площади вырожденной грани (меньше 3 вершин)"""
+        degenerate_vertexes = [
+            R3(0.0, 0.0, 0.0),
+            R3(1.0, 0.0, 0.0)
+        ]
+        facet = Facet(degenerate_vertexes)
+        self.assertEqual(facet.projection_area(), 0.0)
+
     def test_calculate_area_simple_case(self):
         fake_file_content = """1.0 0.0 0.0 0.0
 3 1 3
@@ -75,7 +75,8 @@ class TestPolyedr(unittest.TestCase):
 3.0 3.0 0.0
 0.0 3.0 0.0
 3 1 2 3"""
-        with patch('shadow.polyedr.open', new=mock_open(read_data=fake_file_content)) as _file:
+        with patch('shadow.polyedr.open',
+                   new=mock_open(read_data=fake_file_content)) as _file:
             polyedr = Polyedr('dummy_path')
             self.assertAlmostEqual(polyedr.calculate_area(), 4.5)
 
