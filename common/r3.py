@@ -44,9 +44,9 @@ class R3:
     def is_good(self):
         SIZE = 900
         SCALE = 1.5
-        """Проверяет, находится ли проекция точки строго ниже прямой y=2"""
+        # Проверяет, находится ли проекция точки строго ниже прямой y=2
         screen_y = SIZE/2 - SCALE * self.y
-        return screen_y > (SIZE/2 - SCALE * 2)  # y_экран > (450 - 3) при SCALE=1.5
+        return screen_y > (SIZE/2 - SCALE * 2)
     
     
 if __name__ == "__main__":  # pragma: no cover
