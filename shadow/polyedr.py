@@ -198,4 +198,4 @@ class Polyedr:
             if good_count == 1:
                 total_area += facet.projection_area()
 
-        return total_area / self.scale**2
+        return total_area
